@@ -1,0 +1,24 @@
+#!/bin/bash
+  
+#
+# Dovecot Autodiscovery - Sieve LMTP
+# ==================================
+# 
+# This script autogenerates the sieve lmtp configuration for a dovecot server.
+
+set -e
+umask 0022
+
+myhostname=$(cat /etc/hostname)
+
+logger -t "${0}" "Notice: Adding sieve to dovecot 20-lmtp.conf..."
+
+cat >> "20-lmtp.conf" <<- EOF
+
+protocol lmtp {
+  # Space separated list of plugins to load (default is global mail_plugins).
+  mail_plugins = \$mail_plugins sieve
+}
+
+EOF
+

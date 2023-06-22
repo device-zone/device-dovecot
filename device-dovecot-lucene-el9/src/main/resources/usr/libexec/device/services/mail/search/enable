@@ -1,0 +1,23 @@
+#!/bin/sh
+
+set -e
+umask 0002
+
+if [ "$1" == "--" ]; then
+
+  /usr/bin/sudo /usr/bin/systemctl --quiet enable dovecot.service
+
+  if test ! -f "disabled.bin"; then
+    echo "sieve is already enabled."
+  else
+    rm "disabled.bin"
+    if systemctl is-active --quiet dovecot-autodiscovery.service; then
+      /usr/bin/sudo /usr/bin/systemctl restart dovecot-autodiscovery.service
+      /usr/bin/sudo /usr/bin/systemctl restart dovecot.service
+    else
+      echo "sieve will be enabled on next reboot."
+    fi
+  fi
+
+fi
+

@@ -1,0 +1,19 @@
+# systemd service for managing all dovecot autoconfiguration.
+
+[Unit]
+Description=Dovecot Configuration Autodiscovery
+#Requires=dovecot.service
+PartOf=mail-autodiscovery.target
+#ReloadPropagatedFrom=dovecot.service
+Before=dovecot.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /usr/libexec/device-autodiscovery/dovecot
+ExecReload=/bin/bash /usr/libexec/device-autodiscovery/dovecot
+RemainAfterExit=on
+
+[Install]
+WantedBy=multi-user.target
+WantedBy=mail-autodiscovery.target
+

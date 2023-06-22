@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#
+# Dovecot Autodiscovery - Dovecot
+# ===============================
+# 
+# This script copies the configuration for a dovecot server.
+
+set -e
+umask 0022
+
+
+if test -f "10-auth.conf"; then install -m 640 "10-auth.conf" "/etc/dovecot/conf.d/10-auth.conf"; fi
+if test -f "10-mail.conf"; then install -m 640 "10-mail.conf" "/etc/dovecot/conf.d/10-mail.conf"; fi
+if test -f "10-protocol.conf"; then install -m 640 "10-protocol.conf" "/etc/dovecot/conf.d/10-protocol.conf"; fi
+if test -f "10-master.conf"; then install -m 640 "10-master.conf" "/etc/dovecot/conf.d/10-master.conf"; fi
+if test -f "15-lda.conf"; then install -m 640 "15-lda.conf" "/etc/dovecot/conf.d/15-lda.conf"; fi
+if test -f "15-mailboxes.conf"; then install -m 640 "15-mailboxes.conf" "/etc/dovecot/conf.d/15-mailboxes.conf"; fi
+if test -f "20-imap.conf"; then install -m 640 "20-imap.conf" "/etc/dovecot/conf.d/20-imap.conf"; fi
+if test -f "20-lmtp.conf"; then install -m 640 "20-lmtp.conf" "/etc/dovecot/conf.d/20-lmtp.conf"; fi
+if test -f "20-submission.conf"; then install -m 640 "20-submission.conf" "/etc/dovecot/conf.d/20-submission.conf"; fi
+

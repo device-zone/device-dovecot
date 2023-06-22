@@ -1,0 +1,20 @@
+# systemd service for managing all dovecot postconfiguration.
+
+[Unit]
+Description=Postfix Configuration Postdiscovery
+#Requires=dovecot.service
+PartOf=mail-postdiscovery.target
+#PartOf=dovecot.service
+#ReloadPropagatedFrom=dovecot.service
+After=dovecot.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /usr/libexec/device-postdiscovery/dovecot
+ExecReload=/bin/bash /usr/libexec/device-postdiscovery/dovecot
+RemainAfterExit=on
+
+[Install]
+WantedBy=multi-user.target
+WantedBy=mail-postdiscovery.target
+

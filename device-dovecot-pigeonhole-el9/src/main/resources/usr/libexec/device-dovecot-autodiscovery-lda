@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#
+# Dovecot Autodiscovery - Sieve LDA
+# =================================
+# 
+# This script autogenerates the sieve lda configuration for a dovecot server.
+
+set -e
+umask 0022
+
+myhostname=$(cat /etc/hostname)
+
+logger -t "${0}" "Notice: Adding sieve to dovecot 15-lda.conf..."
+
+cat >> "15-lda.conf" <<- EOF
+
+protocol lda {
+  # Space separated list of plugins to load (default is global mail_plugins).
+  mail_plugins = \$mail_plugins sieve
+}
+EOF
+

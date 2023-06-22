@@ -1,0 +1,33 @@
+#!/bin/sh
+
+set -e
+umask 0002
+
+OPTIONS="--polar disabled"
+
+if [ "$1" == "--" ]; then
+
+  /usr/libexec/device-set ${OPTIONS} "$@"
+
+  if test -f "disabled.bin"; then
+    if systemctl is-active --quiet dovecot-autodiscovery.service; then
+      /usr/bin/sudo /usr/bin/systemctl restart dovecot-autodiscovery.service
+      /usr/bin/sudo /usr/bin/systemctl restart dovecot.service
+    else
+      echo "imap will be disabled on next reboot."
+    fi
+  else
+    if systemctl is-active --quiet dovecot-autodiscovery.service; then
+      /usr/bin/sudo /usr/bin/systemctl restart dovecot-autodiscovery.service
+      /usr/bin/sudo /usr/bin/systemctl restart dovecot.service
+    else
+      echo "imap will be enabled on next reboot."
+    fi
+  fi
+
+elif [ "$1" == "-c" ]; then
+
+  /usr/libexec/device-set ${OPTIONS} "$@"
+
+fi
+

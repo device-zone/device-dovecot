@@ -1,0 +1,57 @@
+#!/bin/bash
+
+#
+# Dovecot Postdiscovery - TLS
+# ===========================
+# 
+# This script autogenerates the inbound TLS configuration for a dovecot server.
+
+set -e
+umask 0022
+
+
+#
+# Generate Config
+# ---------------
+#
+
+if [ -f "/etc/device/services/mail/tls/tls-dns.txt" ]; then
+
+  if command -v /usr/bin/firewall-cmd 2>/dev/null; then
+
+    if test ! -f /etc/device/services/mail/imap/disabled.bin; then
+      logger -t "$0" "Notice: enabling firewall for imaps..."
+      /usr/bin/firewall-cmd --quiet --zone=public --add-service=imaps
+    else
+      logger -t "$0" "Notice: disabling firewall for imaps..."
+      /usr/bin/firewall-cmd --quiet --zone=public --remove-service=imaps
+    fi
+
+    if test ! -f /etc/device/services/mail/pop3/disabled.bin; then
+      logger -t "$0" "Notice: enabling firewall for pop3s..."
+      /usr/bin/firewall-cmd --quiet --zone=public --add-service=pop3s
+    else
+      logger -t "$0" "Notice: disabling firewall for pop3s..."
+      /usr/bin/firewall-cmd --quiet --zone=public --remove-service=pop3s
+    fi
+
+    if test ! -f /etc/device/services/mail/smtp/disabled.bin; then
+      logger -t "$0" "Notice: enabling firewall for smtps..."
+      /usr/bin/firewall-cmd --quiet --zone=public --add-service=smtps
+    else
+      logger -t "$0" "Notice: disabling firewall for smtps..."
+      /usr/bin/firewall-cmd --quiet --zone=public --remove-service=smtps
+    fi
+
+    if test ! -f /etc/device/services/mail/submission/disabled.bin; then
+      logger -t "$0" "Notice: enabling firewall for smtp-submission..."
+      /usr/bin/firewall-cmd --quiet --zone=public --add-service=smtp-submission
+    else
+      logger -t "$0" "Notice: disabling firewall for smtp-submission..."
+      /usr/bin/firewall-cmd --quiet --zone=public --remove-service=smtp-submission
+    fi
+
+  fi
+
+fi
+

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#
+# Dovecot Autodiscovery - Sieve Compile
+# =====================================
+#
+# This script compiles sieves for a dovecot server.
+
+set -e
+umask 0022
+
+logger -t "${0}" "Notice: Compiling sieve scripts..."
+
+/usr/bin/sievec /var/lib/dovecot-sieve/junk.sieve
+/usr/bin/sievec /var/lib/dovecot-sieve/vacation.sieve
+/usr/bin/sievec /var/lib/dovecot-sieve/report-ham.sieve
+/usr/bin/sievec /var/lib/dovecot-sieve/report-spam.sieve
+
+
