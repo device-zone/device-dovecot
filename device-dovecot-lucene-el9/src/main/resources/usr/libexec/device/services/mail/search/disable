@@ -8,14 +8,14 @@ if [ "$1" == "--" ]; then
 #  /usr/bin/sudo /usr/bin/systemctl --quiet disable dovecot.service
 
   if test -f "disabled.bin"; then
-    echo "sieve is already disabled."
+    echo "search is already disabled."
   else
     touch "disabled.bin"
     if systemctl is-active --quiet dovecot-autodiscovery.service; then
       /usr/bin/sudo /usr/bin/systemctl restart dovecot-autodiscovery.target
       /usr/bin/sudo /usr/bin/systemctl restart dovecot-postdiscovery.target
     else
-      echo "sieve will be disabled on next reboot."
+      echo "search will be disabled on next reboot."
     fi
   fi
 

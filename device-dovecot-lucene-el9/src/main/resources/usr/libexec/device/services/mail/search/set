@@ -14,14 +14,14 @@ if [ "$1" == "--" ]; then
       /usr/bin/sudo /usr/bin/systemctl restart dovecot-autodiscovery.target
       /usr/bin/sudo /usr/bin/systemctl restart dovecot-postdiscovery.target
     else
-      echo "imap will be disabled on next reboot."
+      echo "search will be disabled on next reboot."
     fi
   else
     if systemctl is-active --quiet dovecot-autodiscovery.service; then
       /usr/bin/sudo /usr/bin/systemctl restart dovecot-autodiscovery.target
       /usr/bin/sudo /usr/bin/systemctl restart dovecot-postdiscovery.target
     else
-      echo "imap will be enabled on next reboot."
+      echo "search will be enabled on next reboot."
     fi
   fi
 
