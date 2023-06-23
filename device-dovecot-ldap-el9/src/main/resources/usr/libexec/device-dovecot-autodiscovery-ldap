@@ -54,7 +54,7 @@ userdb {
 
 EOF
 
-install -m 640 "auth-ldap.conf.ext" "/etc/dovecot/conf.d/auth-ldap.conf.ext"
+install -m 644 "auth-ldap.conf.ext" "/etc/dovecot/conf.d/auth-ldap.conf.ext"
 
 
 

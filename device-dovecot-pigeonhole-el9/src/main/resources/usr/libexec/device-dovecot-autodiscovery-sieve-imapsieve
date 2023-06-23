@@ -45,5 +45,5 @@ plugin {
 
 EOF
 
-install -m 640 "90-sieve-imapsieve.conf" "/etc/dovecot/conf.d/90-sieve-imapsieve.conf"
+install -m 644 "90-sieve-imapsieve.conf" "/etc/dovecot/conf.d/90-sieve-imapsieve.conf"
 

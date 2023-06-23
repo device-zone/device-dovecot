@@ -137,5 +137,5 @@ EOF
 
 fi
 
-install -m 640 "20-managesieve.conf" "/etc/dovecot/conf.d/20-managesieve.conf"
+install -m 644 "20-managesieve.conf" "/etc/dovecot/conf.d/20-managesieve.conf"
 

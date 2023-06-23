@@ -196,7 +196,7 @@ EOF
 
 
 
-install -m 640 "10-ssl.conf" "/etc/dovecot/conf.d/10-ssl.conf"
+install -m 644 "10-ssl.conf" "/etc/dovecot/conf.d/10-ssl.conf"
 
 
 

@@ -151,6 +151,10 @@
                   <destination>10-master</destination>
                 </source>
                 <source>
+                  <location>target/classes/usr/libexec/device-dovecot-autodiscovery-metrics</location>
+                  <destination>10-metrics</destination>
+                </source>
+                <source>
                   <location>target/classes/usr/libexec/device-dovecot-autodiscovery-protocol</location>
                   <destination>10-protocol</destination>
                 </source>
