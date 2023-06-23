@@ -1,0 +1,9 @@
+# systemd service for managing all dovecot postconfiguration.
+
+[Unit]
+Description=Dovecot Configuration Postdiscovery
+After=dovecot-autodiscovery.target
+
+[Install]
+WantedBy=multi-user.target
+

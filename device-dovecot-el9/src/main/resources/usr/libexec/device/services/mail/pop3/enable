@@ -12,8 +12,8 @@ if [ "$1" == "--" ]; then
   else
     rm "disabled.bin"
     if systemctl is-active --quiet dovecot-autodiscovery.service; then
-      /usr/bin/sudo /usr/bin/systemctl restart dovecot-autodiscovery.service
-      /usr/bin/sudo /usr/bin/systemctl restart dovecot.service
+      /usr/bin/sudo /usr/bin/systemctl restart dovecot-autodiscovery.target
+      /usr/bin/sudo /usr/bin/systemctl restart dovecot-postdiscovery.target
     else
       echo "pop3 will be enabled on next reboot."
     fi

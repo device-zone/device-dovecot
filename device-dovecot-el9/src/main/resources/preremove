@@ -1,7 +1,10 @@
 if [ $1 = 0 ]; then
-  /usr/bin/systemctl stop dovecot-autodiscovery.service
-  /usr/bin/systemctl stop dovecot.service
+  /usr/bin/systemctl stop dovecot-autodiscovery.target
+  /usr/bin/systemctl stop dovecot-postdiscovery.target
+  /usr/bin/systemctl disable dovecot-autodiscovery.target
   /usr/bin/systemctl disable dovecot-autodiscovery.service
   /usr/bin/systemctl disable dovecot.service
+  /usr/bin/systemctl disable dovecot-postdiscovery.target
+  /usr/bin/systemctl disable dovecot-postdiscovery.service
 fi
 

@@ -1,0 +1,8 @@
+# systemd service for managing all dovecot autoconfiguration.
+
+[Unit]
+Description=Dovecot Configuration Autodiscovery
+
+[Install]
+WantedBy=multi-user.target
+

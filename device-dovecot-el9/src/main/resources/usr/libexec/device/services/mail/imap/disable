@@ -12,7 +12,8 @@ if [ "$1" == "--" ]; then
   else
     touch "disabled.bin"
     if systemctl is-active --quiet dovecot-autodiscovery.service; then
-      /usr/bin/sudo /usr/bin/systemctl restart dovecot.service
+      /usr/bin/sudo /usr/bin/systemctl restart dovecot-autodiscovery.target
+      /usr/bin/sudo /usr/bin/systemctl restart dovecot-postdiscovery.target
     else
       echo "imap will be disabled on next reboot."
     fi

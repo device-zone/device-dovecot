@@ -4,9 +4,11 @@
 Description=Postfix Configuration Postdiscovery
 #Requires=dovecot.service
 PartOf=mail-postdiscovery.target
+PartOf=dovecot-postdiscovery.target
 #PartOf=dovecot.service
 #ReloadPropagatedFrom=dovecot.service
 After=dovecot.service
+After=dovecot-autodiscovery.service
 
 [Service]
 Type=oneshot
@@ -17,4 +19,5 @@ RemainAfterExit=on
 [Install]
 WantedBy=multi-user.target
 WantedBy=mail-postdiscovery.target
+WantedBy=dovecot-postdiscovery.target
 

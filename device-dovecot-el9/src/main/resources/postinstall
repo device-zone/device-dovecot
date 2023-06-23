@@ -1,7 +1,10 @@
 if [ $1 = 1 ]; then
 
   # Register the service
-  /usr/bin/systemctl enable dovecot.service
+  /usr/bin/systemctl enable dovecot-autodiscovery.target
   /usr/bin/systemctl enable dovecot-autodiscovery.service
+  /usr/bin/systemctl enable dovecot.service
+  /usr/bin/systemctl enable dovecot-postdiscovery.target
+  /usr/bin/systemctl enable dovecot-postdiscovery.service
 fi
 

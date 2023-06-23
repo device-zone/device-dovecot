@@ -4,6 +4,7 @@
 Description=Dovecot Configuration Autodiscovery
 #Requires=dovecot.service
 PartOf=mail-autodiscovery.target
+PartOf=dovecot-autodiscovery.target
 #ReloadPropagatedFrom=dovecot.service
 Before=dovecot.service
 
@@ -16,4 +17,5 @@ RemainAfterExit=on
 [Install]
 WantedBy=multi-user.target
 WantedBy=mail-autodiscovery.target
+WantedBy=dovecot-autodiscovery.target
 

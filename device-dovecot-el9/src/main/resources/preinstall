@@ -1,3 +1,4 @@
 /usr/bin/getent group vmail > /dev/null || /usr/sbin/groupadd -r vmail
 /usr/bin/getent passwd vmail > /dev/null || /usr/sbin/useradd -r -g vmail vmail -s /sbin/nologin -d /var/spool/vmail
 
+setsebool -P authlogin_nsswitch_use_ldap 1

@@ -211,6 +211,10 @@
                   <location>target/classes/usr/lib/systemd/system/dovecot-autodiscovery.service</location>
                   <destination>dovecot-autodiscovery.service</destination>
                 </source>
+                <source>
+                  <location>target/classes/usr/lib/systemd/system/dovecot-autodiscovery.target</location>
+                  <destination>dovecot-autodiscovery.target</destination>
+                </source>
               </sources>
             </mapping>
             <mapping>
@@ -223,6 +227,10 @@
                 <source>
                   <location>target/classes/usr/lib/systemd/system/dovecot-postdiscovery.service</location>
                   <destination>dovecot-postdiscovery.service</destination>
+                </source>
+                <source>
+                  <location>target/classes/usr/lib/systemd/system/dovecot-postdiscovery.target</location>
+                  <destination>dovecot-postdiscovery.target</destination>
                 </source>
               </sources>
             </mapping>
@@ -323,7 +331,7 @@
               </sources>
             </mapping>
             <mapping>
-              <directory>/var/spool/vmail</directory>
+              <directory>/var/spool/imap</directory>
               <directoryIncluded>true</directoryIncluded>
               <filemode>2770</filemode>
               <username>vmail</username>
