@@ -16,12 +16,12 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
 
-  <artifactId>device-dovecot-lucene</artifactId>
+  <artifactId>device-dovecot-server</artifactId>
   <groupId>zone.device.platform.el9</groupId>
   <version>0.9.1-SNAPSHOT</version>
   <packaging>rpm</packaging>
-  <name>device dovecot lucene applicance for el9</name>
-  <description>Packaging for the dovecot lucene appliance for ${release.distribution}</description>
+  <name>device dovecot server applicance for el9</name>
+  <description>Packaging for the dovecot server appliance for ${release.distribution}</description>
   <inceptionYear>2023</inceptionYear>
 
   <build>
@@ -34,14 +34,6 @@
           <include>postinstall</include>
         </includes>
       </resource>
-      <resource>
-        <targetPath>etc</targetPath>
-        <directory>src/main/resources/etc</directory>  
-        <filtering>true</filtering>
-        <includes>
-          <include>**/*</include>
-        </includes>
-      </resource> 
       <resource>
         <targetPath>usr</targetPath>
         <directory>src/main/resources/usr</directory>
@@ -89,62 +81,11 @@
           <defineStatements>
             <defineStatement>_unpackaged_files_terminate_build 0</defineStatement>
           </defineStatements>
-          <mappings>
-            <mapping>
-              <directory>/etc/device/services/mail/search</directory>
-              <directoryIncluded>true</directoryIncluded>
-              <filemode>2775</filemode>
-              <username>root</username>
-              <groupname>device</groupname>
-            </mapping>
-            <mapping>
-              <directory>/usr/libexec/device/services/mail/search</directory>
-              <directoryIncluded>true</directoryIncluded>
-              <filemode>755</filemode>
-              <username>root</username>
-              <groupname>root</groupname>
-            </mapping>
-            <mapping>
-              <directory>/usr/libexec/device/services/mail/search</directory>
-              <directoryIncluded>false</directoryIncluded>
-              <filemode>755</filemode>
-              <username>root</username>
-              <groupname>root</groupname>
-              <sources>
-                <source>
-                  <location>target/classes/usr/libexec/device/services/mail/search/enable</location>
-                </source>
-                <source>
-                  <location>target/classes/usr/libexec/device/services/mail/search/disable</location>
-                </source>
-                <source>
-                  <location>target/classes/usr/libexec/device/services/mail/search/set</location>
-                </source>
-              </sources>
-            </mapping>
-            <mapping>
-              <directory>/usr/libexec/device-autodiscovery/dovecot.d</directory>
-              <directoryIncluded>false</directoryIncluded>
-              <filemode>755</filemode>
-              <username>root</username>
-              <groupname>root</groupname>
-              <sources>
-                <source>
-                  <location>target/classes/usr/libexec/device-dovecot-autodiscovery-lucene</location>
-                  <destination>15-lucene</destination>
-                </source>
-              </sources>
-            </mapping>
-          </mappings>
-          <preremoveScriptlet>
-            <scriptFile>target/classes/preremove</scriptFile>
-            <fileEncoding>utf-8</fileEncoding>
-          </preremoveScriptlet>
-	  <provides>
-            <provide>device-dovecot-search</provide>
-          </provides>
-	  <requires>
-            <require>device-dovecot</require>
+          <requires>
+            <require>device-dovecot-ldap</require>
+            <require>device-dovecot-search</require>
+	    <require>device-dovecot-pigeonhole</require>
+	    <require>device-dovecot-tls</require>
           </requires>
         </configuration>
       </plugin>

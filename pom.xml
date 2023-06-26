@@ -31,6 +31,7 @@
     <module>device-dovecot-ldap-el9</module>
     <module>device-dovecot-pigeonhole-el9</module>
     <module>device-dovecot-lucene-el9</module>
+    <module>device-dovecot-server-el9</module>
   </modules>
 
   <build>
