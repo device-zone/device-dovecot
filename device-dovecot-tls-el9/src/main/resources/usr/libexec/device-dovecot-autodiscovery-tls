@@ -20,7 +20,7 @@ logger -t "${0}" "Notice: Creating dovecot 10-ssl.conf..."
 
 if test -f "/etc/device/services/mail/tls/tls-dns.txt"; then
 
-  install -m 0750 -d /run/dovecot-tls /run/dovecot-tls/ca-certs /run/dovecot-tls/certs /run/dovecot-tls/private
+  install -m 0750 -d /run/dovecot/ca-certs /run/dovecot/certs /run/dovecot/private
 
   tls_dns=$(head -n 1 /etc/device/services/mail/tls/tls-dns.txt)
 
@@ -33,17 +33,19 @@ if test -f "/etc/device/services/mail/tls/tls-dns.txt"; then
               --filter-hostname="${tls_dns}" \
               --filter-current \
               --cert-out --chain-out --no-key-out \
-              --pem-out="/run/dovecot-tls/certs/dovecot.crt" \
+              --pem-out="/run/dovecot/certs/dovecot.crt" \
               --no-cert-out --no-chain-out --trust-out \
-              --pem-out="/run/dovecot-tls/ca-certs/ssl-cacert.pem" \
+              --pem-out="/run/dovecot/ca-certs/ssl-cacert.pem" \
               --no-chain-out --no-trust-out --key-out \
-              --pem-out="/run/dovecot-tls/private/dovecot.key" || echo "Could not import cert/key for tls" > "error"
+              --pem-out="/run/dovecot/private/dovecot.key" || echo "Could not import cert/key for tls" > "error"
 
   if test ! -f "error"; then
     logger -t "${0}" "imported dovecot server certificate/key."
   else
     logger -t "${0}" "failed to import dovecot server certificate/key."
   fi
+
+  restorecon /run/dovecot
 
 fi
 
@@ -73,8 +75,8 @@ ssl = required
 # dropping root privileges, so keep the key file unreadable by anyone but
 # root. Included doc/mkcert.sh can be used to easily generate self-signed
 # certificate, just make sure to update the domains in dovecot-openssl.cnf
-ssl_cert = </run/dovecot-tls/certs/dovecot.crt
-ssl_key = </run/dovecot-tls/private/dovecot.key
+ssl_cert = </run/dovecot/certs/dovecot.crt
+ssl_key = </run/dovecot/private/dovecot.key
 
 EOF
 
