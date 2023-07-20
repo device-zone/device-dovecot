@@ -36,7 +36,7 @@ if test -f "/etc/device/services/mail/tls/tls-dns.txt"; then
               --pem-out="/run/dovecot/certs/dovecot.crt" \
               --no-cert-out --no-chain-out --trust-out \
               --pem-out="/run/dovecot/ca-certs/ssl-cacert.pem" \
-              --no-chain-out --no-trust-out --key-out \
+              --no-chain-out --no-trust-out --parameter-out --key-out \
               --pem-out="/run/dovecot/private/dovecot.key" || echo "Could not import cert/key for tls" > "error"
 
   if test ! -f "error"; then
