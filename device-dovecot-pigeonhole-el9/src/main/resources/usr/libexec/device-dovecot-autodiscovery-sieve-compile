@@ -11,9 +11,9 @@ umask 0022
 
 logger -t "${0}" "Notice: Compiling sieve scripts..."
 
-/usr/bin/sievec /var/lib/dovecot/sieve/junk.sieve
-/usr/bin/sievec /var/lib/dovecot/sieve/vacation.sieve
-/usr/bin/sievec /var/lib/dovecot/sieve/report-ham.sieve
-/usr/bin/sievec /var/lib/dovecot/sieve/report-spam.sieve
+/usr/bin/sievec /var/lib/dovecot-pigeonhole/junk.sieve
+/usr/bin/sievec /var/lib/dovecot-pigeonhole/vacation.sieve
+/usr/bin/sievec /var/lib/dovecot-pigeonhole/report-ham.sieve
+/usr/bin/sievec /var/lib/dovecot-pigeonhole/report-spam.sieve
 
 

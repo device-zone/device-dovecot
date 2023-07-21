@@ -40,15 +40,15 @@ plugin {
   # vnd.dovecot.pipe, vnd.dovecot.filter and vnd.dovecot.execute extension
   # respectively. The name of each script contained in that directory
   # directly maps to a program-name referenced from the Sieve script.
-  sieve_pipe_bin_dir = /var/lib/dovecot/sieve/sieve-pipe
-  sieve_filter_bin_dir = /var/lib/dovecot/sieve/sieve-filter
-  sieve_execute_bin_dir = /var/lib/dovecot/sieve/sieve-execute
+  sieve_pipe_bin_dir = /var/lib/dovecot-pigeonhole/sieve-pipe
+  sieve_filter_bin_dir = /var/lib/dovecot-pigeonhole/sieve-filter
+  sieve_execute_bin_dir = /var/lib/dovecot-pigeonhole/sieve-execute
 }
 
 # An example program service called 'do-something' to pipe messages to
 #service do-something {
   # Define the executed script as parameter to the sieve service
-  #executable = script /usr/lib/dovecot/sieve-pipe/do-something.sh
+  #executable = script /var/lib/dovecot-pigeonhole/sieve-pipe/do-something.sh
 
   # Use some unprivileged user for executing the program
   #user = dovenull

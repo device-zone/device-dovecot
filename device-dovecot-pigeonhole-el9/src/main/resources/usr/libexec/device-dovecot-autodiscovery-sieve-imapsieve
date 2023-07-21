@@ -13,14 +13,14 @@ myhostname=$(cat /etc/hostname)
 
 logger -t "${0}" "Notice: Creating dovecot 90-sieve-imapsieve.conf..."
 
-if [ ! -e "/var/lib/dovecot/sieve/report-ham.sieve" ]; then
-  touch /var/lib/dovecot/sieve/report-ham.sieve
-  /usr/bin/sievec /var/lib/dovecot/sieve/report-ham.sieve
+if [ ! -e "/var/lib/dovecot-pigeonhole/report-ham.sieve" ]; then
+  touch /var/lib/dovecot-pigeonhole/report-ham.sieve
+  /usr/bin/sievec /var/lib/dovecot-pigeonhole/report-ham.sieve
 fi
 
-if [ ! -e "/var/lib/dovecot/sieve/report-spam.sieve" ]; then
-  touch /var/lib/dovecot/sieve/report-spam.sieve
-  /usr/bin/sievec /var/lib/dovecot/sieve/report-spam.sieve
+if [ ! -e "/var/lib/dovecot-pigeonhole/report-spam.sieve" ]; then
+  touch /var/lib/dovecot-pigeonhole/report-spam.sieve
+  /usr/bin/sievec /var/lib/dovecot-pigeonhole/report-spam.sieve
 fi
 
 cat > "90-sieve-imapsieve.conf" <<- EOF
@@ -33,13 +33,13 @@ plugin {
   # From elsewhere to Junk folder
   imapsieve_mailbox1_name = Junk
   imapsieve_mailbox1_causes = COPY
-  imapsieve_mailbox1_before = file:/var/lib/dovecot/sieve/report-spam.sieve
+  imapsieve_mailbox1_before = file:/var/lib/dovecot-pigeonhole/report-spam.sieve
 
   # From Junk folder to elsewhere
   imapsieve_mailbox2_name = *
   imapsieve_mailbox2_from = Junk
   imapsieve_mailbox2_causes = COPY
-  imapsieve_mailbox2_before = file:/var/lib/dovecot/sieve/report-ham.sieve
+  imapsieve_mailbox2_before = file:/var/lib/dovecot-pigeonhole/report-ham.sieve
 
 }
 
