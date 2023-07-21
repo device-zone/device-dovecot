@@ -172,49 +172,49 @@
               </sources>
             </mapping>
             <mapping>
-              <directory>/var/lib/dovecot-sieve</directory>
+              <directory>/var/lib/dovecot/sieve</directory>
               <directoryIncluded>true</directoryIncluded>
               <filemode>755</filemode>
               <username>root</username>
               <groupname>root</groupname>
             </mapping>
             <mapping>
-              <directory>/var/lib/dovecot-sieve</directory>
+              <directory>/var/lib/dovecot/sieve</directory>
               <directoryIncluded>false</directoryIncluded>
               <filemode>755</filemode>
               <username>root</username>
               <groupname>root</groupname>
               <sources>
                 <source>
-                  <location>target/classes/var/lib/dovecot-sieve/junk.sieve</location>
+                  <location>target/classes/var/lib/dovecot/sieve/junk.sieve</location>
                 </source>
                 <source>
-                  <location>target/classes/var/lib/dovecot-sieve/report-ham.sieve</location>
+                  <location>target/classes/var/lib/dovecot/sieve/report-ham.sieve</location>
                 </source>
                 <source>
-                  <location>target/classes/var/lib/dovecot-sieve/report-spam.sieve</location>
+                  <location>target/classes/var/lib/dovecot/sieve/report-spam.sieve</location>
                 </source>     
                 <source>
-                  <location>target/classes/var/lib/dovecot-sieve/vacation.sieve</location>
+                  <location>target/classes/var/lib/dovecot/sieve/vacation.sieve</location>
                 </source>
               </sources>
             </mapping>
             <mapping>
-              <directory>/var/lib/dovecot-sieve/sieve-pipe</directory>
+              <directory>/var/lib/dovecot/sieve/sieve-pipe</directory>
               <directoryIncluded>true</directoryIncluded>
               <filemode>755</filemode>
               <username>root</username>
               <groupname>root</groupname>
             </mapping>
             <mapping>
-              <directory>/var/lib/dovecot-sieve/sieve-filter</directory>
+              <directory>/var/lib/dovecot/sieve/sieve-filter</directory>
               <directoryIncluded>true</directoryIncluded>
               <filemode>755</filemode>
               <username>root</username>
               <groupname>root</groupname>     
             </mapping>
             <mapping>
-              <directory>/var/lib/dovecot-sieve/sieve-execute</directory>
+              <directory>/var/lib/dovecot/sieve/sieve-execute</directory>
               <directoryIncluded>true</directoryIncluded>
               <filemode>755</filemode>
               <username>root</username>

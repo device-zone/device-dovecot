@@ -40,9 +40,9 @@ plugin {
   # vnd.dovecot.pipe, vnd.dovecot.filter and vnd.dovecot.execute extension
   # respectively. The name of each script contained in that directory
   # directly maps to a program-name referenced from the Sieve script.
-  sieve_pipe_bin_dir = /var/lib/dovecot-sieve/sieve-pipe
-  sieve_filter_bin_dir = /var/lib/dovecot-sieve/sieve-filter
-  sieve_execute_bin_dir = /var/lib/dovecot-sieve/sieve-execute
+  sieve_pipe_bin_dir = /var/lib/dovecot/sieve/sieve-pipe
+  sieve_filter_bin_dir = /var/lib/dovecot/sieve/sieve-filter
+  sieve_execute_bin_dir = /var/lib/dovecot/sieve/sieve-execute
 }
 
 # An example program service called 'do-something' to pipe messages to
