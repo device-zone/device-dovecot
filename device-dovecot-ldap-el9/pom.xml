@@ -4,7 +4,7 @@
   <parent>
     <artifactId>device-dovecot</artifactId>
     <groupId>zone.device.platform</groupId>
-    <version>0.9.6-SNAPSHOT</version>
+    <version>0.9.6</version>
   </parent>
 
   <properties>
@@ -18,7 +18,7 @@
 
   <artifactId>device-dovecot-ldap</artifactId>
   <groupId>zone.device.platform.el9</groupId>
-  <version>0.9.6-SNAPSHOT</version>
+  <version>0.9.6</version>
   <packaging>rpm</packaging>
   <name>device dovecot ldap applicance for el9</name>
   <description>Packaging for the dovecot LDAP appliance for ${release.distribution}</description>
