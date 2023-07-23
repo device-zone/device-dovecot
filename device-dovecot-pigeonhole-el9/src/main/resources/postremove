@@ -1,3 +1,0 @@
-if [ $1 = 0 ]; then
-  semanage fcontext -d -t dovecot_var_lib_t '/var/lib/dovecot-pigeonhole(/.*)?' || true
-fi

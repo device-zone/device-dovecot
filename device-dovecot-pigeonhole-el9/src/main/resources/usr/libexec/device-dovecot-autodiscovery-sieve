@@ -64,7 +64,7 @@ plugin {
   # sievec command line tool if the binary is not stored in a global location.
   # --> See sieve_before for executing scripts before the user's personal
   #     script.
-  sieve_default = /var/lib/dovecot-pigeonhole/default.sieve
+  sieve_default = /var/spool/dovecot/sieve/default.sieve
 
   # The name by which the default Sieve script (as configured by the 
   # sieve_default setting) is visible to the user through ManageSieve. 
@@ -103,8 +103,8 @@ plugin {
   #sieve_after =
   #sieve_after2 =
   #sieve_after2 = (etc...)
-  sieve_after = /var/lib/dovecot-pigeonhole/junk.sieve
-  sieve_after2 = /var/lib/dovecot-pigeonhole/vacation.sieve
+  sieve_after = /var/spool/dovecot/sieve/junk.sieve
+  sieve_after2 = /var/spool/dovecot/sieve/vacation.sieve
 
   # Which Sieve language extensions are available to users. By default, all
   # supported extensions are available, except for deprecated extensions or
