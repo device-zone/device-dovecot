@@ -201,7 +201,7 @@ scope = subtree
 # There are also other special fields which can be returned, see
 # http://wiki2.dovecot.org/UserDatabase/ExtraFields
 #user_attrs = homeDirectory=home,uidNumber=uid,gidNumber=gid
-user_attrs = mailMessageStore=home=%\$,=sieve_env_mail_auto_reply_mode=%{ldap:mailAutoReplyMode},=sieve_env_mail_auto_reply_text=%{ldap:mailAutoReplyText}
+user_attrs = =sieve_env_mail_auto_reply_mode=%{ldap:mailAutoReplyMode},=sieve_env_mail_auto_reply_text=%{ldap:mailAutoReplyText}
 
 # Filter for user lookup. Some variables can be used (see
 # http://wiki2.dovecot.org/Variables for full list):
@@ -226,7 +226,7 @@ user_filter = (&(objectClass=mailRecipient)(|(mail=%u)(mailAlternateAddress=%u))
 #pass_attrs = uid=user,userPassword=password,\\
 #  homeDirectory=userdb_home,uidNumber=userdb_uid,gidNumber=userdb_gid
 pass_attrs = mail=user,userPassword=password,\\
-  mailMessageStore=userdb_home,mailHost=host,=ssl=yes
+  mailHost=host,=ssl=yes
 
 # Filter for password lookups
 #pass_filter = (&(objectClass=posixAccount)(uid=%u))
