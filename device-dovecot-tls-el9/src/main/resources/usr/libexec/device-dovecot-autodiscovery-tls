@@ -110,21 +110,21 @@ cat >> "10-ssl.conf" <<- EOF
 
 EOF
 
-if test -f /etc/device/services/mail/tls/tls-dns.txt; then
+if test -f /etc/device/services/mail/tls/tls-dns.txt -a -L /etc/device/services/mail/tls/tls-ca.crt; then
 
 cat >> "10-ssl.conf" <<- EOF
-# Note: CA enabled because /etc/device/services/mail/tls/tls-ca-certs.crt exists
+# Note: CA enabled because /etc/device/services/mail/tls/tls-ca.crt exists
 
 # PEM encoded trusted certificate authority. Set this only if you intend to use
 # ssl_verify_client_cert=yes. The file should contain the CA certificate(s)
 # followed by the matching CRL(s). (e.g. ssl_ca = </etc/pki/dovecot/certs/ca.pem)
-ssl_ca = /etc/device/services/mail/tls/tls-ca-certs.crt
+ssl_ca = </etc/device/services/mail/tls/tls-ca.crt
 
 EOF
 
 else
 cat >> "10-ssl.conf" <<- EOF
-# Note: CA disabled because /etc/device/services/mail/tls/tls-ca-certs.crt does not exist
+# Note: CA disabled because /etc/device/services/mail/tls/tls-ca.crt does not exist
 
 # PEM encoded trusted certificate authority. Set this only if you intend to use
 # ssl_verify_client_cert=yes. The file should contain the CA certificate(s)
