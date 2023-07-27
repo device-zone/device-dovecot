@@ -119,6 +119,23 @@ cat > "10-auth.conf" <<- EOF
 # NOTE: See also disable_plaintext_auth setting.
 auth_mechanisms = plain login
 
+
+# Per SASL mechanism configuration
+#
+#mechanism external {
+#  auth_username_chars =
+#  auth_ssl_require_client_cert = yes
+#  auth_ssl_username_from_cert = yes
+#}
+
+#mechanism !external {
+#  auth_ssl_require_client_cert = no
+#  auth_ssl_username_from_cert = no
+#}
+
+
+
+
 ##
 ## Password and user databases
 ##

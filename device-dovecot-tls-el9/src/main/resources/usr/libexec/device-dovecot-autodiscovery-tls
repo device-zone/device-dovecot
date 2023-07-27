@@ -138,6 +138,7 @@ fi
 cat >> "10-ssl.conf" <<- EOF
 # Require that CRL check succeeds for client certificates.
 #ssl_require_crl = yes
+ssl_require_crl = no
 
 # Directory and/or file for trusted SSL CA certificates. These are used only
 # when Dovecot needs to act as an SSL client (e.g. imapc backend or
@@ -153,12 +154,16 @@ cat >> "10-ssl.conf" <<- EOF
 
 # Request client to send a certificate. If you also want to require it, set
 # auth_ssl_require_client_cert=yes in auth section.
-#ssl_verify_client_cert = no
+ssl_verify_client_cert = yes
 
 # Which field from certificate to use for username. commonName and
 # x500UniqueIdentifier are the usual choices. You'll also need to set
 # auth_ssl_username_from_cert=yes.
 #ssl_cert_username_field = commonName
+
+#mechanism external {
+#  ssl_cert_username_cea = yes
+#}
 
 # SSL DH parameters
 # Generate new params with \`openssl dhparam -out /etc/dovecot/dh.pem 4096\`
