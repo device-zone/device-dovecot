@@ -20,4 +20,5 @@ if test -f "15-mailboxes.conf"; then install -m 644 "15-mailboxes.conf" "/etc/do
 if test -f "20-imap.conf"; then install -m 644 "20-imap.conf" "/etc/dovecot/conf.d/20-imap.conf"; fi
 if test -f "20-lmtp.conf"; then install -m 644 "20-lmtp.conf" "/etc/dovecot/conf.d/20-lmtp.conf"; fi
 if test -f "20-submission.conf"; then install -m 644 "20-submission.conf" "/etc/dovecot/conf.d/20-submission.conf"; fi
+if test -f "90-acl.conf"; then install -m 644 "90-acl.conf" "/etc/dovecot/conf.d/90-acl.conf"; fi
 

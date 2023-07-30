@@ -179,6 +179,10 @@
                   <destination>20-submission</destination>
                 </source>
                 <source>
+                  <location>target/classes/usr/libexec/device-dovecot-autodiscovery-acl</location>
+                  <destination>20-acl</destination>
+                </source>
+                <source>
                   <location>target/classes/usr/libexec/device-dovecot-autodiscovery-dovecot</location>
                   <destination>50-dovecot</destination>
                 </source>
