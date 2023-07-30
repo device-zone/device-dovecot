@@ -120,6 +120,10 @@ cat >> "10-ssl.conf" <<- EOF
 # followed by the matching CRL(s). (e.g. ssl_ca = </etc/pki/dovecot/certs/ca.pem)
 ssl_ca = </etc/device/services/mail/tls/tls-ca.crt
 
+# Request client to send a certificate. If you also want to require it, set
+# auth_ssl_require_client_cert=yes in auth section.
+ssl_verify_client_cert = yes
+
 EOF
 
 else
@@ -130,6 +134,10 @@ cat >> "10-ssl.conf" <<- EOF
 # ssl_verify_client_cert=yes. The file should contain the CA certificate(s)
 # followed by the matching CRL(s). (e.g. ssl_ca = </etc/pki/dovecot/certs/ca.pem)
 #ssl_ca =
+
+# Request client to send a certificate. If you also want to require it, set
+# auth_ssl_require_client_cert=yes in auth section.
+#ssl_verify_client_cert = no
 
 EOF
 
@@ -151,10 +159,6 @@ ssl_require_crl = no
 
 # Require valid cert when connecting to a remote server
 #ssl_client_require_valid_cert = yes
-
-# Request client to send a certificate. If you also want to require it, set
-# auth_ssl_require_client_cert=yes in auth section.
-ssl_verify_client_cert = yes
 
 # Which field from certificate to use for username. commonName and
 # x500UniqueIdentifier are the usual choices. You'll also need to set
