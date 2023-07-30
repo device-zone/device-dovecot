@@ -106,7 +106,7 @@ namespace {
 
   # Mailboxes are visible under "shared/user@domain/"
   # %%n, %%d and %%u are expanded to the destination user.
-  prefix = shared/%%u/
+  prefix = Shared/%%u/
 
   # Mail location for other users' mailboxes. Note that %variables and ~/
   # expands to the logged in user's data. %%n, %%d, %%u and %%h expand to the
