@@ -29,7 +29,7 @@ if test -f "/etc/device/services/mail/tls/tls-dns.txt"; then
   redwax-tool --pem-in="/etc/pki/tls/private/*" \
               --pem-in="/etc/pki/tls/certs/ca-bundle.trust.crt" \
               --pem-in="/etc/pki/tls/certs/*.pem" \
-              --filter=verify \
+              --filter=search \
               --filter-hostname="${tls_dns}" \
               --filter-current \
               --cert-out --chain-out --no-key-out \
