@@ -8,7 +8,7 @@
 
   <artifactId>device-dovecot</artifactId>
   <groupId>zone.device.platform</groupId>
-  <version>0.9.17</version>
+  <version>0.9.18-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>device dovecot package</name>
   <description>Packaging for the dovecot appliance</description>
@@ -20,9 +20,9 @@
   </organization>
 
   <scm>
-    <connection>scm:svn:https://github.com/device-zone/device-dovecot/tags/device-dovecot-0.9.17</connection>
-    <developerConnection>scm:svn:https://github.com/device-zone/device-dovecot/tags/device-dovecot-0.9.17</developerConnection>
-    <url>https://github.com/device-zone/device-dovecot/tags/device-dovecot-0.9.17</url>
+    <connection>scm:svn:https://github.com/device-zone/device-dovecot/trunk</connection>
+    <developerConnection>scm:svn:https://github.com/device-zone/device-dovecot/trunk</developerConnection>
+    <url>https://github.com/device-zone/device-dovecot/trunk</url>
   </scm>
 
   <modules>
