@@ -29,9 +29,10 @@ if test -f "/etc/device/services/mail/tls/tls-dns.txt"; then
   redwax-tool --pem-in="/etc/pki/tls/private/*" \
               --pem-in="/etc/pki/tls/certs/ca-bundle.trust.crt" \
               --pem-in="/etc/pki/tls/certs/*.pem" \
-              --filter=search \
+              --filter=verify \
               --filter-hostname="${tls_dns}" \
               --filter-current \
+              --filter-expiry=ignore-leaf \
               --cert-out --chain-out --no-key-out \
               --pem-out="/run/dovecot/certs/dovecot.crt" \
               --no-cert-out --no-chain-out --trust-out \
