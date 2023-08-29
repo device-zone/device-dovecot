@@ -272,6 +272,9 @@
                 <source>
                   <location>target/classes/usr/libexec/device/services/mail/imap/set</location>
                 </source>
+                <source>
+                  <location>target/classes/usr/libexec/device/services/mail/imap/show</location>
+                </source>
               </sources>
             </mapping>
             <mapping>
@@ -304,6 +307,9 @@
                 <source>
                   <location>target/classes/usr/libexec/device/services/mail/pop3/set</location>
                 </source>
+                <source>
+                  <location>target/classes/usr/libexec/device/services/mail/pop3/show</location>
+                </source>
               </sources>
             </mapping>
             <mapping>
@@ -335,6 +341,9 @@
                 </source>
                 <source>
                   <location>target/classes/usr/libexec/device/services/mail/submission/set</location>
+                </source>
+                <source>
+                  <location>target/classes/usr/libexec/device/services/mail/submission/show</location>
                 </source>
               </sources>
             </mapping>
