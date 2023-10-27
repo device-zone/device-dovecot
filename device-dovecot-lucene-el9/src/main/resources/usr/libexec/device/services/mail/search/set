@@ -3,7 +3,7 @@
 set -e
 umask 0002
 
-OPTIONS="--polar disabled --relation-base /etc/device/services/app/tika2 --relation-name name --relation-suffix .txt --relation tika2"
+OPTIONS="--polar disabled --bytes-minimum 0 --bytes vsz-limit --relation-base /etc/device/services/app/tika2 --relation-name name --relation-suffix .txt --relation tika2"
 
 if [ "$1" == "--" ]; then
 

@@ -44,6 +44,23 @@ plugin {
 EOF
 
 
+if test -f /etc/device/services/mail/search/vsz-limit.txt; then
+
+  vsz_limit=$(head -n 1 "/etc/device/services/mail/search/vsz-limit.txt")
+
+  cat >> "05-lucene.conf" <<- EOF
+
+# Note: vsz_limit set because /etc/device/services/mail/search/vsz-limit.txt exists
+service indexer-worker {
+  vsz_limit = ${vsz_limit}
+
+}
+
+EOF
+
+fi
+
+
 if test ! -f /etc/device/services/mail/search/disabled.bin; then
 
   cat >> "05-lucene.conf" <<- EOF
