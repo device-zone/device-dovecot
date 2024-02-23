@@ -20,9 +20,9 @@
   </organization>
 
   <scm>
-    <connection>scm:svn:https://github.com/device-zone/device-dovecot/trunk</connection>
-    <developerConnection>scm:svn:https://github.com/device-zone/device-dovecot/trunk</developerConnection>
-    <url>https://github.com/device-zone/device-dovecot/trunk</url>
+    <connection>scm:git:https://github.com/device-zone/device-dovecot.git</connection>
+    <developerConnection>scm:git:https://github.com/device-zone/device-dovecot.git</developerConnection>
+    <url>https://github.com/device-zone/device-dovecot/</url>
   </scm>
 
   <modules>
