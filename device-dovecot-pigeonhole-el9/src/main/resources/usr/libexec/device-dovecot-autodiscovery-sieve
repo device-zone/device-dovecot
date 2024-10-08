@@ -193,6 +193,12 @@ plugin {
   # sender of the redirected message is also always "<>".
   #sieve_redirect_envelope_from = sender
 
+  ## VACATION
+  # This setting determines whether vacation messages are sent with the SMTP
+  # MAIL FROM envelope address set to the recipient address of the Sieve script
+  # owner.
+  sieve_vacation_send_from_recipient = yes
+
   ## TRACE DEBUGGING
   # Trace debugging provides detailed insight in the operations performed by
   # the Sieve script. These settings apply to both the LDA Sieve plugin and the
